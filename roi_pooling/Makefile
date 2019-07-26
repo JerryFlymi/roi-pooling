@@ -1,5 +1,7 @@
-TF_INC = $(shell python -c 'import tensorflow as tf; print(tf.sysconfig.get_include())')
-CUDA_LIB = /usr/local/cuda-9.0/lib64/
+TF_INC = `python -c "import tensorflow; print(tensorflow.sysconfig.get_include())"`
+TF_LIB = `python -c "import tensorflow; print(tensorflow.sysconfig.get_lib())"`
+
+CUDA_LIB = /usr/local/cuda/lib64/
 
 all: clean build test
 

@@ -10,7 +10,7 @@ roi_pooling.cu.o: roi_pooling.cu.cc
 
 roi_pooling.so: roi_pooling.cc roi_pooling.cu.o
 	g++ -std=c++11 -shared -o $@ $? -I $(TF_INC) -fPIC -lcudart -L$(CUDA_LIB) -D _GLIBCXX_USE_CXX11_ABI=0 \
-		-L /home/jerry/anaconda3/envs/fast-rcnn/lib/python3.7/site-packages/tensorflow -libtensorflow_framework.so.1
+		-L /home/jerry/anaconda3/envs/fast-rcnn/lib/python3.7/site-packages/tensorflow libtensorflow_framework.so.1
 
 test: build
 	python roi_pooling_test.py
